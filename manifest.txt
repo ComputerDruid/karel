@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: xercesImpl.jar
+Created-By: 1.5.0_08 (Sun Microsystems Inc.)
+

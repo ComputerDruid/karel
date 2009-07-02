@@ -1,0 +1,25 @@
+<project name="karel2" default="dist-files" basedir=".">
+    <target name="build-all">
+        <javac srcdir="." classpath=".:xercesImpl.jar" />
+    </target>
+    <target name="rebuild-all" depends="clean, build-all" />
+    <target name="dist-files" depends="build-all">
+        <jar destfile="karel2.jar" basedir="." includes="**/*.class" manifest="manifest.txt" update="true" />
+    	<jar destfile="karel2.jar" basedir="." includes="**/*.java" manifest="manifest.txt" update="true" />
+    	<jar destfile="karel2.jar" basedir="." includes="icons/*.*" update="true" />
+    	<jar destfile="karel2.jar" basedir="." includes="default.map" update="true" />
+    	<jar destfile="karel2.jar" basedir="." includes="build.xml" manifest="manifest.txt" update="true" />
+    	<jar destfile="karel2.jar" basedir="." includes="manifest.txt" manifest="manifest.txt" update="true" />
+    	<jar destfile="karel2.jar" basedir="." includes="xercesImpl.jar" update="true" />
+        <jar destfile="karel2.jar" basedir="." includes="LICENSE.TXT" manifest="manifest.txt" update="true" />
+    </target>
+    <target name="clean">
+        <delete>
+            <!--<fileset dir="." includes="**/*.class" />-->
+            <fileset dir="." includes="karel2.jar" />
+        </delete>
+    </target>
+    <target name="docs">
+        <javadoc sourcepath="." destdir="docs" packagenames="edu.fcps.*" />
+    </target>
+</project>
