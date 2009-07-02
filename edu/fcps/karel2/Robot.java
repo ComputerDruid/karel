@@ -240,4 +240,11 @@
          ImageIcon i = Display.getKarelImage(direction);
          g.drawImage(i.getImage(), c.x - i.getIconWidth() / 2, c.y - i.getIconHeight() / 2, null);
       }
+	  
+	  public boolean sameSpot() {
+		for(Robot robot : WorldBackend.getCurrent().getRobots())
+			if(robot != this && robot.getX() == x && robot.getY() == y)
+				return true;
+		return false;
+	  }
    }
