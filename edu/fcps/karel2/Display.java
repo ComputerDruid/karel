@@ -5,10 +5,6 @@ import edu.fcps.karel2.util.*;
 import java.awt.*;
 import javax.swing.*;
 
-/**
- * @author Andy Street, alstreet@vt.edu, 2007
- */
-
 /*
  * Copyright (C) Andy Street 2007
  *
@@ -32,6 +28,7 @@ import javax.swing.*;
  * Display houses most of the static constants used in object creation and rendering, Karel file
  * locations and images, and the speed at which the WorldPanel updates.  The Display.step() method
  * is responsible for the animation of the Panel.
+ * @author Andy Street, alstreet@vt.edu, 2007
  */
 
 public class Display {

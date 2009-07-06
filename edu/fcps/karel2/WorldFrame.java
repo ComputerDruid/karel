@@ -2,10 +2,6 @@ package edu.fcps.karel2;
 
 import javax.swing.JFrame;
 
-/**
- * @author Andy Street, alstreet@vt.edu, 2007
- */
-
 /*
  * Copyright (C) Andy Street 2007
  *
@@ -28,6 +24,7 @@ import javax.swing.JFrame;
 /**
  * WorldFrame houses the WorldPanel and deals with its creation using the WorldBackend passed to the
  * constructor.
+ * @author Andy Street, alstreet@vt.edu, 2007
  */
 public class WorldFrame extends JFrame {
 	

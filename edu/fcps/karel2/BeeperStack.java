@@ -5,10 +5,6 @@ import edu.fcps.karel2.util.*;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
-/**
- * @author Andy Street, alstreet@vt.edu, 2007
- */
-
 /*
  * Copyright (C) Andy Street 2007
  *
@@ -31,6 +27,7 @@ import java.awt.geom.Rectangle2D;
 /**
  * The BeeperStack is a renderable object that keeps track of its location on the world and it's
  * number of beepers.
+ * @author Andy Street, alstreet@vt.edu, 2007
  */
 public class BeeperStack extends Item {
 	

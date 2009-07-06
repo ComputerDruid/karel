@@ -4,10 +4,6 @@ import edu.fcps.karel2.util.*;
 
 import java.awt.Graphics;
 
-/**
- * @author Andy Street, alstreet@vt.edu, 2007
- */
-
 /*
  * Copyright (C) Andy Street 2007
  *
@@ -29,6 +25,7 @@ import java.awt.Graphics;
 
 /**
  * The Item class keeps track of an x and y coordinate and provides an abstract render method.
+ * @author Andy Street, alstreet@vt.edu, 2007
  */
 
 public abstract class Item {

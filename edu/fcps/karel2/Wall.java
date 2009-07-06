@@ -4,10 +4,6 @@ import edu.fcps.karel2.util.*;
 
 import java.awt.*;
 
-/**
- * @author Andy Street, alstreet@vt.edu, 2007
- */
-
 /*
  * Copyright (C) Andy Street 2007
  *
@@ -41,6 +37,7 @@ import java.awt.*;
  *
  * If the Wall is of length greater than 1, the Wall will extend outwards towards x-infinity or
  * y-infinity, depending on its orientation.
+ * @author Andy Street, alstreet@vt.edu, 2007
  */
 
 public class Wall extends Item {

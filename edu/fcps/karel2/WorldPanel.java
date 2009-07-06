@@ -5,10 +5,6 @@ import edu.fcps.karel2.util.*;
 import java.awt.*;
 import javax.swing.*;
 
-/**
- * @author Andy Street, alstreet@vt.edu, 2007
- */
-
 /*
  * Copyright (C) Andy Street 2007
  *
@@ -31,6 +27,7 @@ import javax.swing.*;
 /**
  * The WorldPanel is responsible for actually drawing the world, according to the specifications of the
  * associated WorldBackend.
+ * @author Andy Street, alstreet@vt.edu, 2007
  */
 public class WorldPanel extends JPanel {
 
