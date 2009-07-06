@@ -29,37 +29,34 @@ import java.awt.Graphics;
  */
 
 public abstract class Item {
-	
+
 	protected int x, y;
-	
+
 	/**
-         * Constructs an item with the specified x and y coordinates.
-         */
-        public Item(int x, int y)
-	{
+	 * Constructs an item with the specified x and y coordinates.
+	 */
+	public Item(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
-	
-        /**
-         * Returns the x coordinate.
-         */
-	public int getX()
-	{
+
+	/**
+	 * Returns the x coordinate.
+	 */
+	public int getX() {
 		return x;
 	}
-	
-        /**
-         * Returns the y coordinate.
-         */
-	public int getY()
-	{
+
+	/**
+	 * Returns the y coordinate.
+	 */
+	public int getY() {
 		return y;
 	}
-	
-        /**
-         * Renders the Item.
-         */
+
+	/**
+	 * Renders the Item.
+	 */
 	public abstract void render(Graphics g, Coordinate c);
-	
+
 }
