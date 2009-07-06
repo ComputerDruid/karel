@@ -13,6 +13,7 @@
    
       private int beepers;
       private int direction;
+      private int count;
    
        public Robot()
       {

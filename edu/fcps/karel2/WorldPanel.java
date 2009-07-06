@@ -173,7 +173,7 @@ public class WorldPanel extends JPanel {
         /**
          * Paints the world.
          */
-	protected synchronized void paintComponent(Graphics g)
+	protected void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
 		
