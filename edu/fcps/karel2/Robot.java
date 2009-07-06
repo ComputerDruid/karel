@@ -104,7 +104,7 @@
       
          Display.step();
       }
-       void turnRight()
+      private void turnRight()
       {
          if(Display.isDead()) 
             return;
