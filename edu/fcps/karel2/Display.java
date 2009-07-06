@@ -105,7 +105,7 @@ public class Display {
          * If a WorldFrame has been previously created, its close method is called, closing the
          * associated WorldFrame and WorldBackend before disposing of the current WorldFrame.
          */
-	static void closeWorld()
+	private static void closeWorld()
 	{
 		if(WorldFrame.getCurrent() != null)
 			WorldFrame.getCurrent().close();
