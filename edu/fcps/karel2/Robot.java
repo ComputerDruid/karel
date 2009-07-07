@@ -324,6 +324,6 @@ public class Robot extends Item {
 	 * @param other the Robot to check against
 	 */
 	public boolean sameSpot(Robot other) {
-		return (x == other.getX() && y == other.getY())
+		return (x == other.getX() && y == other.getY());
 	}
 }
