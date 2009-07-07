@@ -4,6 +4,8 @@ import edu.fcps.karel2.util.*;
 
 import java.awt.*;
 import javax.swing.*;
+import java.util.Map;
+import java.util.List;
 
 /*
  * Copyright (C) Andy Street 2007
@@ -76,8 +78,11 @@ public class WorldPanel extends JPanel {
 	 * Renders all beepers contained by the world using the specified Graphics object.
 	 */
 	private void renderBeepers(Graphics g) {
-		for (BeeperStack b : wb.getBeepers().values()) {
-			b.render(g, coordinateToPixel(b.getX(), b.getY()));
+		Map<Coordinate, BeeperStack> beepers = wb.getBeepers();
+		synchronized (beepers) {
+			for (BeeperStack b : beepers.values()) {
+				b.render(g, coordinateToPixel(b.getX(), b.getY()));
+			}
 		}
 	}
 
@@ -85,8 +90,11 @@ public class WorldPanel extends JPanel {
 	 * Renders all Walls contained by the world using the specified Graphics object.
 	 */
 	private void renderWalls(Graphics g) {
-		for (Wall w : wb.getWalls()) {
-			w.render(g, coordinateToPixel(w.getX(), w.getY()));
+		List<Wall> walls = wb.getWalls();
+		synchronized (walls) {
+			for (Wall w : walls) {
+				w.render(g, coordinateToPixel(w.getX(), w.getY()));
+			}
 		}
 	}
 
@@ -94,8 +102,11 @@ public class WorldPanel extends JPanel {
 	 * Renders all Robots contained by the world using the specified Graphics object.
 	 */
 	private void renderRobots(Graphics g) {
-		for (Robot r : wb.getRobots()) {
-			r.render(g, coordinateToPixel(r.getX(), r.getY()));
+		List<Robot> robots = wb.getRobots();
+		synchronized (robots) {
+			for (Robot r : robots) {
+				r.render(g, coordinateToPixel(r.getX(), r.getY()));
+			}
 		}
 	}
 

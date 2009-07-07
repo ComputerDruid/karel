@@ -4,6 +4,7 @@ import edu.fcps.karel2.util.*;
 
 import java.awt.*;
 import javax.swing.*;
+import java.util.List;
 
 /**
  * @author Andy Street, alstreet@vt.edu, 2007
@@ -211,9 +212,12 @@ public class Robot extends Item {
 	}
 
 	public boolean sameSpot() {
-		for (Robot robot : WorldBackend.getCurrent().getRobots())
-			if (robot != this && robot.getX() == x && robot.getY() == y)
-				return true;
-		return false;
+		List<Robot> robots = WorldBackend.getCurrent().getRobots();
+		synchronized (robots) {
+			for (Robot robot : robots)
+				if (robot != this && robot.getX() == x && robot.getY() == y)
+					return true;
+			return false;
+		}
 	}
 }
