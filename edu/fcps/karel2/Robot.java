@@ -7,8 +7,8 @@ import javax.swing.*;
 import java.util.List;
 
 /**
- * A Robot is a basic movable object in the world. Students interct primarily with Robot objects in order to solve the 
- * problems in the labs. Robots tend to update their status whenever asked and then request a display update with Display.step(). 
+ * A Robot is a basic movable object in the world. Students interct primarily with Robot objects in order to solve the
+ * problems in the labs. Robots tend to update their status whenever asked and then request a display update with Display.step().
  * This class is intended to be subclassed to add simple behaviors.
  * @author Andy Street, alstreet@vt.edu, 2007
  */
@@ -318,7 +318,7 @@ public class Robot extends Item {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Returns whether or not the specified Robot on the same square as this Robot.
 	 * @param other the Robot to check against
