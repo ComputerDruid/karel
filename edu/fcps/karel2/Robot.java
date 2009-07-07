@@ -220,4 +220,8 @@ public class Robot extends Item {
 			return false;
 		}
 	}
+	
+	public boolean sameSpot(Robot other) {
+		return (x == other.getX() && y == other.getY())
+	}
 }
