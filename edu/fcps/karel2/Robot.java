@@ -14,7 +14,6 @@ public class Robot extends Item {
 
 	private int beepers;
 	private int direction;
-	private int count;
 
 	public Robot() {
 		this(1, 1, Display.EAST, 0);
