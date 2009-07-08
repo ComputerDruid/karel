@@ -8,6 +8,8 @@ import java.net.*;
 import java.util.*;
 
 /**
+ * Thw WorldBackend stores and preforms actions on the data structures storing the information.
+ * This includes Beepers, Robots, and Walls. It also provides the ability to load this information from xml files.
  * @author Andy Street, alstreet@vt.edu, 2007
  */
 
@@ -24,6 +26,10 @@ public class WorldBackend {
 
 	private Wall xAxisWall = null, yAxisWall = null;
 
+	/**
+	 * Creates a WorldBackend starting with the objects listed in the provided xml file.
+	 * @param mapName the path to the xml file to load
+	 */
 	public WorldBackend(String mapName) {
 		current = this;
 
@@ -36,10 +42,17 @@ public class WorldBackend {
 
 		parseMap(mapName);
 	}
+
+	/**
+	 * Creates a WorldBackend starting with the default map.
+	 */
 	public WorldBackend() {
 		this(null);
 	}
 
+	/**
+	 * Adds a robot to the world.
+	 */
 	void addRobot(Robot r) {
 		synchronized (robots) {
 			robots.add(r);
@@ -47,6 +60,9 @@ public class WorldBackend {
 		Display.step();
 	}
 
+	/**
+	 * Removes a robot from the world.
+	 */
 	void removeRobot(Robot r) {
 		synchronized (robots) {
 			robots.remove(r);
@@ -54,6 +70,12 @@ public class WorldBackend {
 		Display.step();
 	}
 
+	/**
+	 * Adds the specified number of beepers to the stack of beepers at the specified location.
+	 * @param x the x coordinate of the taget location
+	 * @param y the y coordinate of the taget location
+	 * @param num number of beepers to place at the location.
+	 */
 	public void putBeepers(int x, int y, int num) {
 		Coordinate c = new Coordinate(x, y);
 		if (num == Display.INFINITY) {
@@ -79,13 +101,18 @@ public class WorldBackend {
 		}
 	}
 
+	/**
+	 * Adds a wall to the world.
+	 */
 	public void addWall(Wall w) {
 		synchronized (walls) {
 			walls.add(w);
 		}
 	}
 
-	//Objects
+	/**
+	 * Helper method to convert the attributes from the file which represent a beeper into a beeper object.
+	 */
 	public void addObject_beeper(Attributes a) {
 		int x = Integer.parseInt(a.get("x"));
 		int y = Integer.parseInt(a.get("y"));
@@ -96,6 +123,9 @@ public class WorldBackend {
 		else
 			putBeepers(x, y, Integer.parseInt(num));
 	}
+	/**
+	 * Helper method to convert the attributes from the file which represent a wall into a wall object.
+	 */
 	public void addObject_wall(Attributes a) {
 		int x = Integer.parseInt(a.get("x"));
 		int y = Integer.parseInt(a.get("y"));
@@ -108,7 +138,9 @@ public class WorldBackend {
 
 	}
 
-	//Properties
+	/**
+	 * Helper method to parse the attributes from the file which dictate the size of the world.
+	 */
 	public void loadProperties_defaultSize(Attributes a) {
 		int w = Integer.parseInt(a.get("width"));
 		int h = Integer.parseInt(a.get("height"));
@@ -116,10 +148,19 @@ public class WorldBackend {
 		Display.setSize(w, h);
 	}
 
+	/**
+	 * Starts off the loading of the specified map.
+	 * @param mapName the path to the map file
+	 */
 	void parseMap(String mapName) {
 		Element e = new XMLParser().parse(getInputStreamForMap(mapName));
 		WorldParser.initiateMap(e);
 	}
+
+	/**
+	 * Helper method to open the specified file.
+	 * @param fileName the path to the map file
+	 */
 	private InputStream getInputStreamForMap(String fileName) {
 		FileInputStream f = null;
 
@@ -150,16 +191,32 @@ public class WorldBackend {
 		return f;
 	}
 
+	/**
+	 * Returns a Map of BeeperStacks with Coordinate keys
+	 */
 	Map<Coordinate, BeeperStack> getBeepers() {
 		return beepers;
 	}
+	/**
+	 * Returns a list of the Walls on the map
+	 */
 	List<Wall> getWalls() {
 		return walls;
 	}
+	/**
+	 * Returns a list of the Robots on the map
+	 */
 	List<Robot> getRobots() {
 		return robots;
 	}
 
+	/**
+	 * Checks to see if a wall exists at the specified location and direction. 
+	 * Used when trying to determine collisions.
+	 * @param x x-coordinate of potential wall
+	 * @param y y-coordinate of potential wall
+	 * @param style orientation of potential wall
+	 */
 	boolean checkWall(int x, int y, int style) {
 		synchronized (walls) {
 			switch (style) {
@@ -184,9 +241,22 @@ public class WorldBackend {
 		}
 		return false;
 	}
+
+	/**
+	 * Checks to see if any beepers exist at the specified location.
+	 * @param x x-coordinate of the location to check
+	 * @param y y-coordinate of the location to check
+	 */
 	boolean checkBeepers(int x, int y) {
 		return beepers.get(new Coordinate(x, y)) != null;
 	}
+
+	/**
+	 * Checks to see if there is a Robot besides the specified robot at a given location.
+	 * @param r Robot to exclude from the search
+	 * @param x x-coordinate of the location to search
+	 * @param y y-coordinate of the location to search
+	 */
 	boolean isNextToARobot(Robot r, int x, int y) {
 		for (Robot robot : robots)
 			if (robot != r && robot.getX() == x && robot.getY() == y)
@@ -195,6 +265,11 @@ public class WorldBackend {
 		return false;
 	}
 
+	/**
+	 * Resizes the world, resizing the bottom and left walls if needed.
+	 * @param width how wide the world should be
+	 * @param height how high the world should be
+	 */
 	void setSize(int width, int height) {
 		if (this.width != width) {
 			this.width = width;
@@ -208,16 +283,25 @@ public class WorldBackend {
 			walls.add(yAxisWall = new Wall(0, 1, height, Display.VERTICAL));
 		}
 	}
+
+	/**
+	 * Returns a coordinate representing the size of the world.
+	 */
 	public Coordinate getSize() {
 		return new Coordinate(width, height);
 	}
 
+	/**
+	 * Closes the world, making any new calls create a new world.
+	 */
 	void close() {
 		current = null;
 	}
 
+	/**
+	 * Returns the currently running instance of WorldBackend.
+	 */
 	public static WorldBackend getCurrent() {
 		return current;
 	}
-
 }
