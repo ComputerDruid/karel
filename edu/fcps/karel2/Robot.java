@@ -212,6 +212,13 @@ public class Robot extends Item {
 	}
 
 	/**
+	 * Checks to see if a wall would prevent the robot from turning around and then moving forward.
+	 */
+	public boolean backIsClear() {
+		return isClear(Display.validateDirection(direction + 2));
+	}
+
+	/**
 	 * Returns whether or not there are any beepers on the same square as this Robot.
 	 */
 	public boolean nextToABeeper() {
