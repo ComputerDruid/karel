@@ -83,7 +83,7 @@ public class Display {
 	 * The maximum allowed speed.
 	 */
 	private static final int MAX_SPEED = 10;
-	
+
 	/**
 	 * Internally used to pause before the first paint.
 	 */
@@ -95,16 +95,16 @@ public class Display {
 	private static Font beeperFont = null;
 	/**
 	 * The name of the font to write numbers on the beepers.
-	 */	
+	 */
 	private static String beeperFontName = "monospaced";
 	/**
 	 * The font size to write numbers on the beepers.
-	 */	
+	 */
 	private static int beeperFontSize = 10;
 
 	/**
 	 * Array to hold all the directions.
-	 */	
+	 */
 	private static final int[] directions = { NORTH,
 	                                        EAST,
 	                                        SOUTH,
@@ -117,15 +117,15 @@ public class Display {
 	private static final String nkarelLocation = "/icons/kareln.gif";
 	/**
 	 * Location of the image of karel facing east.
-	 */	
+	 */
 	private static final String ekarelLocation = "/icons/karele.gif";
 	/**
 	 * Location of the image of karel facing south.
-	 */	
+	 */
 	private static final String skarelLocation = "/icons/karels.gif";
 	/**
 	 * Location of the image of karel facing west.
-	 */	
+	 */
 	private static final String wkarelLocation = "/icons/karelw.gif";
 
 	/**
@@ -134,25 +134,25 @@ public class Display {
 	private static ImageIcon nkarel = null;
 	/**
 	 * Image icon where the east-facing karel is loaded.
-	 */	
+	 */
 	private static ImageIcon ekarel = null;
 	/**
 	 * Image icon where the south-facing karel is loaded.
-	 */	
+	 */
 	private static ImageIcon skarel = null;
 	/**
 	 * Image icon where the west-facing karel is loaded.
-	 */	
+	 */
 	private static ImageIcon wkarel = null;
 
 	/**
 	 * Default world speed.
-	 */	
+	 */
 	private static int speed = 5;
 
 	/**
 	 * Tracks whether or not the program has crashed.
-	 */	
+	 */
 	private static boolean isDead = false;
 
 	/**

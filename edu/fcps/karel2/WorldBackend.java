@@ -211,7 +211,7 @@ public class WorldBackend {
 	}
 
 	/**
-	 * Checks to see if a wall exists at the specified location and direction. 
+	 * Checks to see if a wall exists at the specified location and direction.
 	 * Used when trying to determine collisions.
 	 * @param x x-coordinate of potential wall
 	 * @param y y-coordinate of potential wall
