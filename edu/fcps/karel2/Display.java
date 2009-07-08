@@ -33,52 +33,126 @@ import javax.swing.*;
 
 public class Display {
 
-	//	Maps
+	/**
+	 * Map loaded if no other map is specified.
+	 */
 	public static final String DEFAULT_MAP = "/default.map";
 
-	//Directions
+	/**
+	 * Defined direction for east (right).
+	 */
 	public static final int EAST = 0;
+	/**
+	 * Defined direction for north (up).
+	 */
 	public static final int NORTH = 1;
+	/**
+	 * Defined direction for west (left).
+	 */
 	public static final int WEST = 2;
+	/**
+	 * Defined direction for south (down).
+	 */
 	public static final int SOUTH = 3;
 
-	//Frame
+	/**
+	 * Default width of the display window.
+	 */
 	public static int FRAME_WIDTH = 550;
+	/**
+	 * Default height of the display window
+	 */
 	public static int FRAME_HEIGHT = 550;
 
 	//Walls
+	/**
+	 * Define for a vertical wall.
+	 */
 	public static final int VERTICAL = 1;
+	/**
+	 * Define for a horizontal wall.
+	 */
 	public static final int HORIZONTAL = 2;
 
-	//Beepers
+	/**
+	 * The internal number used to identify an infinite number of beepers.
+	 */
 	public static final int INFINITY = -2;
 
+	/**
+	 * The maximum allowed speed.
+	 */
 	private static final int MAX_SPEED = 10;
-
+	
+	/**
+	 * Internally used to pause before the first paint.
+	 */
 	private static boolean firstStep = true;
 
+	/**
+	 * The font to write numbers on the beepers.
+	 */
 	private static Font beeperFont = null;
+	/**
+	 * The name of the font to write numbers on the beepers.
+	 */	
 	private static String beeperFontName = "monospaced";
+	/**
+	 * The font size to write numbers on the beepers.
+	 */	
 	private static int beeperFontSize = 10;
 
+	/**
+	 * Array to hold all the directions.
+	 */	
 	private static final int[] directions = { NORTH,
 	                                        EAST,
 	                                        SOUTH,
 	                                        WEST
 	                                        };
 
+	/**
+	 * Location of the image of karel facing north.
+	 */
 	private static final String nkarelLocation = "/icons/kareln.gif";
+	/**
+	 * Location of the image of karel facing east.
+	 */	
 	private static final String ekarelLocation = "/icons/karele.gif";
+	/**
+	 * Location of the image of karel facing south.
+	 */	
 	private static final String skarelLocation = "/icons/karels.gif";
+	/**
+	 * Location of the image of karel facing west.
+	 */	
 	private static final String wkarelLocation = "/icons/karelw.gif";
 
+	/**
+	 * Image icon where the north-facing karel is loaed.
+	 */
 	private static ImageIcon nkarel = null;
+	/**
+	 * Image icon where the east-facing karel is loaded.
+	 */	
 	private static ImageIcon ekarel = null;
+	/**
+	 * Image icon where the south-facing karel is loaded.
+	 */	
 	private static ImageIcon skarel = null;
+	/**
+	 * Image icon where the west-facing karel is loaded.
+	 */	
 	private static ImageIcon wkarel = null;
 
+	/**
+	 * Default world speed.
+	 */	
 	private static int speed = 5;
 
+	/**
+	 * Tracks whether or not the program has crashed.
+	 */	
 	private static boolean isDead = false;
 
 	/**
