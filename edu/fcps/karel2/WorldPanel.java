@@ -118,8 +118,8 @@ public class WorldPanel extends JPanel {
 	 * Renders the world.
 	 */
 	private void renderScene(Graphics g) {
-		blockWidth = getXBlockLength();
-		blockHeight = getYBlockLength();
+		blockWidth = (int)getXBlockLength();
+		blockHeight = (int)getYBlockLength();
 
 		renderGrid(g);
 		renderBeepers(g);
@@ -167,8 +167,8 @@ public class WorldPanel extends JPanel {
 	 * Returns the number of pixels between two consecutive vertical paths
 	 * (avenues). Used for creating walls.
 	 */
-	protected int getXBlockLength() {
-		return (int)((getSize().getWidth() - 2 * X_BUFFER)
+	protected double getXBlockLength() {
+		return ((getSize().getWidth() - 2 * X_BUFFER)
 		             * (1.0 / wb.getSize().x));
 	}
 
@@ -176,8 +176,8 @@ public class WorldPanel extends JPanel {
 	 * Returns the number of pixels between two consecutive horizontal paths
 	 * (streets). Used for creating walls.
 	 */
-	protected int getYBlockLength() {
-		return (int)((getSize().getHeight() - 2 * Y_BUFFER)
+	protected double getYBlockLength() {
+		return ((getSize().getHeight() - 2 * Y_BUFFER)
 		             * (1.0 / wb.getSize().y));
 	}
 

@@ -117,19 +117,19 @@ public class Wall extends Item {
 	public void render(Graphics g, Coordinate c) {
 		g.setColor(Color.black);
 
-		int width = WorldPanel.getCurrent().getXBlockLength();
-		int height = WorldPanel.getCurrent().getYBlockLength();
+		double width = WorldPanel.getCurrent().getXBlockLength();
+		double height = WorldPanel.getCurrent().getYBlockLength();
 
 		switch (style) {
 			case Display.VERTICAL:
-				g.fillRect(c.x + width / 2 - (WALL_WIDTH - 1) / 2,
-				c.y - height * length + height / 2 ,
-				WALL_WIDTH, height * length + 1);
+				g.fillRect((int)(c.x + width / 2 - (WALL_WIDTH - 1) / 2),
+				(int)(c.y - height * length + height / 2),
+				WALL_WIDTH, (int)(height * length + 1));
 				break;
 			case Display.HORIZONTAL:
-				g.fillRect(c.x - width / 2,
-				c.y - height / 2 - (WALL_WIDTH - 1) / 2,
-				width * length + 1, WALL_WIDTH);
+				g.fillRect((int)(c.x - width / 2),
+				(int)(c.y - height / 2 - (WALL_WIDTH - 1) / 2),
+				(int)(width * length + 1), WALL_WIDTH);
 				break;
 		}
 	}
