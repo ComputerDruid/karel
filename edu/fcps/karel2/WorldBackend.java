@@ -8,8 +8,10 @@ import java.net.*;
 import java.util.*;
 
 /**
- * Thw WorldBackend stores and preforms actions on the data structures storing the information.
- * This includes Beepers, Robots, and Walls. It also provides the ability to load this information from xml files.
+ * The WorldBackend stores and preforms actions on the data structures storing
+ * the information. This includes Beepers, Robots, and Walls. It also provides
+ * the ability to load this information from xml files.
+ *
  * @author Andy Street, alstreet@vt.edu, 2007
  */
 
@@ -27,13 +29,15 @@ public class WorldBackend {
 	private Wall xAxisWall = null, yAxisWall = null;
 
 	/**
-	 * Creates a WorldBackend starting with the objects listed in the provided xml file.
+	 * Creates a WorldBackend starting with the objects listed in the
+	 * provided xml file.
 	 * @param mapName the path to the xml file to load
 	 */
 	public WorldBackend(String mapName) {
 		current = this;
 
-		beepers = Collections.synchronizedMap(new HashMap<Coordinate, BeeperStack>());
+		beepers = Collections.synchronizedMap(new HashMap < Coordinate,
+		                                      BeeperStack > ());
 		robots = Collections.synchronizedList(new ArrayList<Robot>());
 		walls = Collections.synchronizedList(new ArrayList<Wall>());
 
@@ -71,7 +75,8 @@ public class WorldBackend {
 	}
 
 	/**
-	 * Adds the specified number of beepers to the stack of beepers at the specified location.
+	 * Adds the specified number of beepers to the stack of beepers at the
+	 * specified location.
 	 * @param x the x coordinate of the taget location
 	 * @param y the y coordinate of the taget location
 	 * @param num number of beepers to place at the location.
@@ -111,7 +116,8 @@ public class WorldBackend {
 	}
 
 	/**
-	 * Helper method to convert the attributes from the file which represent a beeper into a beeper object.
+	 * Helper method to convert the attributes from the file which represent
+	 * a beeper into a beeper object.
 	 */
 	public void addObject_beeper(Attributes a) {
 		int x = Integer.parseInt(a.get("x"));
@@ -124,13 +130,15 @@ public class WorldBackend {
 			putBeepers(x, y, Integer.parseInt(num));
 	}
 	/**
-	 * Helper method to convert the attributes from the file which represent a wall into a wall object.
+	 * Helper method to convert the attributes from the file which represent
+	 * a wall into a wall object.
 	 */
 	public void addObject_wall(Attributes a) {
 		int x = Integer.parseInt(a.get("x"));
 		int y = Integer.parseInt(a.get("y"));
 		int length = Integer.parseInt(a.get("length"));
-		int style = a.get("style").equalsIgnoreCase("horizontal") ? Display.HORIZONTAL : Display.VERTICAL;
+		int style = a.get("style").equalsIgnoreCase("horizontal") ?
+		            Display.HORIZONTAL : Display.VERTICAL;
 
 		addWall(new Wall(x, y, length, style));
 	}
@@ -139,7 +147,8 @@ public class WorldBackend {
 	}
 
 	/**
-	 * Helper method to parse the attributes from the file which dictate the size of the world.
+	 * Helper method to parse the attributes from the file which dictate the
+	 * size of the world.
 	 */
 	public void loadProperties_defaultSize(Attributes a) {
 		int w = Integer.parseInt(a.get("width"));
@@ -220,23 +229,25 @@ public class WorldBackend {
 	boolean checkWall(int x, int y, int style) {
 		synchronized (walls) {
 			switch (style) {
-				case Display.HORIZONTAL: {
-						for (Wall w : walls)
-							if (w.getStyle() == style)
-								if (w.getY() == y && x >= w.getX() && x < w.getX() + w.getLength())
-									return true;
+				case Display.HORIZONTAL:
+					for (Wall w : walls)
+						if (w.getStyle() == style)
+							if (w.getY() == y &&
+							x >= w.getX() &&
+							x < w.getX() + w.getLength())
+								return true;
 
-						break;
-					}
+					break;
 				case Display.VERTICAL:
-				default: {
-						for (Wall w : walls)
-							if (w.getStyle() == style)
-								if (w.getX() == x && y >= w.getY() && y < w.getY() + w.getLength())
-									return true;
+				default:
+					for (Wall w : walls)
+						if (w.getStyle() == style)
+							if (w.getX() == x &&
+							y >= w.getY() &&
+							y < w.getY() + w.getLength())
+								return true;
 
-						break;
-					}
+					break;
 			}
 		}
 		return false;
@@ -252,7 +263,8 @@ public class WorldBackend {
 	}
 
 	/**
-	 * Checks to see if there is a Robot besides the specified robot at a given location.
+	 * Checks to see if there is a Robot besides the specified robot at a
+	 * given location.
 	 * @param r Robot to exclude from the search
 	 * @param x x-coordinate of the location to search
 	 * @param y y-coordinate of the location to search

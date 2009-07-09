@@ -22,8 +22,8 @@ import javax.swing.JFrame;
  */
 
 /**
- * WorldFrame houses the WorldPanel and deals with its creation using the WorldBackend passed to the
- * constructor.
+ * WorldFrame houses the WorldPanel and deals with its creation using the
+ * WorldBackend passed to the constructor.
  * @author Andy Street, alstreet@vt.edu, 2007
  */
 public class WorldFrame extends JFrame {
@@ -31,8 +31,9 @@ public class WorldFrame extends JFrame {
 	private static WorldFrame current = null;
 
 	/**
-	 * Constructs a WorldFrame associated with the specified WorldBackend.  A WorldPanel is
-	 * created with the WorldBackend and set as the content pane.
+	 * Constructs a WorldFrame associated with the specified WorldBackend.
+	 * A WorldPanel is created with the WorldBackend and set as the content
+	 * pane.
 	 */
 	public WorldFrame(WorldBackend wb) {
 		super();

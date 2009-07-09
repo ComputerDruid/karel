@@ -24,19 +24,22 @@ import java.awt.*;
  */
 
 /**
- * A Wall is a barrier that is rendered on the WorldPanel.  A Wall appears between two lanes on the
- * map and causes the program to end when a Robot walks into it.
+ * A Wall is a barrier that is rendered on the WorldPanel.  A Wall appears
+ * between two lanes on the map and causes the program to end when a Robot walks
+ * into it.
  *
- * For vertical walls, the x coordinate corresponds to the vertical lane in front of which the Wall
- * will render, and the y coordinate corresponds to the horizontal lane on which the first segment
- * of the Wall will center on.
+ * For vertical walls, the x coordinate corresponds to the vertical lane in
+ * front of which the Wall will render, and the y coordinate corresponds to the
+ * horizontal lane on which the first segment of the Wall will center on.
  *
- * For horizontal walls, the x coordinate corresponds to the vertical lane on which the first segment
- * of the wall will center on, and the y coordinate corresponds to the horizontal lane in front of
- * which the Wall will render.
+ * For horizontal walls, the x coordinate corresponds to the vertical lane on
+ * which the first segment of the wall will center on, and the y coordinate
+ * corresponds to the horizontal lane in front of which the Wall will render.
  *
- * If the Wall is of length greater than 1, the Wall will extend outwards towards x-infinity or
- * y-infinity, depending on its orientation.
+ * If the Wall is of length greater than 1, the Wall will extend outwards
+ * in the direction of positive x-infinity or y-infinity, depending on its
+ * orientation.
+ *
  * @author Andy Street, alstreet@vt.edu, 2007
  */
 
@@ -60,7 +63,8 @@ public class Wall extends Item {
 	 * Constructs a Wall of length 1 with the specified style
 	 * @param x the x coordinate of the Wall
 	 * @param y the y coordinate of the Wall
-	 * @param style the orientation of the wall (Display.VERTICAL or Display.HORIZONTAL)
+	 * @param style the orientation of the wall (Display.VERTICAL or
+	 * Display.HORIZONTAL)
 	 */
 	public Wall(int x, int y, int style) {
 		this(x, y, 1, style);
@@ -71,7 +75,8 @@ public class Wall extends Item {
 	 * @param x the x coordinate of the Wall
 	 * @param y the y coordinate of the Wall
 	 * @param length the length of the Wall
-	 * @param style the orientation of the wall (Display.VERTICAL or Display.HORIZONTAL)
+	 * @param style the orientation of the wall (Display.VERTICAL or
+	 * Display.HORIZONTAL)
 	 */
 	public Wall(int x, int y, int length, int style) {
 		super(x, y);
@@ -96,14 +101,16 @@ public class Wall extends Item {
 
 	/**
 	 * Returns the style of the Wall
-	 * @return the orientation of the wall (Display.VERTICAL or Display.HORIZONTAL)
+	 * @return the orientation of the wall (Display.VERTICAL or
+	 * Display.HORIZONTAL)
 	 */
 	public int getStyle() {
 		return style;
 	}
 
 	/**
-	 * Renders the Wall at the Coordinate specified using the passed Graphics object.
+	 * Renders the Wall at the Coordinate specified using the passed
+	 * Graphics object.
 	 * @param g the Graphics with which to render the Wall
 	 * @param c the Coordinate (in pixels) at which to render the Wall
 	 */
@@ -114,19 +121,22 @@ public class Wall extends Item {
 		int height = WorldPanel.getCurrent().getYBlockLength();
 
 		switch (style) {
-			case Display.VERTICAL: {
-					g.fillRect(c.x + width / 2 - (WALL_WIDTH - 1) / 2, c.y - height * length + height / 2 , WALL_WIDTH, height * length + 1);
-					break;
-				}
-			case Display.HORIZONTAL: {
-					g.fillRect(c.x - width / 2, c.y - height / 2 - (WALL_WIDTH - 1) / 2, width * length + 1, WALL_WIDTH);
-					break;
-				}
+			case Display.VERTICAL:
+				g.fillRect(c.x + width / 2 - (WALL_WIDTH - 1) / 2,
+				c.y - height * length + height / 2 ,
+				WALL_WIDTH, height * length + 1);
+				break;
+			case Display.HORIZONTAL:
+				g.fillRect(c.x - width / 2,
+				c.y - height / 2 - (WALL_WIDTH - 1) / 2,
+				width * length + 1, WALL_WIDTH);
+				break;
 		}
 	}
 
 	public String toString() {
-		return "Wall { x : " + getX() + ", y: " + getY() + " , length: " + length + ", style: " + style + " }";
+		return "Wall { x : " + getX() + ", y: " + getY() + 
+		" , length: " + length + ", style: " + style + " }";
 	}
 
 }

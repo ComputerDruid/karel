@@ -27,8 +27,8 @@ import java.util.List;
  */
 
 /**
- * The WorldPanel is responsible for actually drawing the world, according to the specifications of the
- * associated WorldBackend.
+ * The WorldPanel is responsible for actually drawing the world, according to
+ * the specifications of the associated WorldBackend.
  * @author Andy Street, alstreet@vt.edu, 2007
  */
 public class WorldPanel extends JPanel {
@@ -55,7 +55,8 @@ public class WorldPanel extends JPanel {
 	}
 
 	/**
-	 * Renders the world paths (avenues and streets) using the specified Graphics object.
+	 * Renders the world paths (avenues and streets) using the specified
+	 * Graphics object.
 	 */
 	private void renderGrid(Graphics g) {
 		Coordinate worldSize = wb.getSize();
@@ -75,7 +76,8 @@ public class WorldPanel extends JPanel {
 	}
 
 	/**
-	 * Renders all beepers contained by the world using the specified Graphics object.
+	 * Renders all beepers contained by the world using the specified
+	 * Graphics object.
 	 */
 	private void renderBeepers(Graphics g) {
 		Map<Coordinate, BeeperStack> beepers = wb.getBeepers();
@@ -87,7 +89,8 @@ public class WorldPanel extends JPanel {
 	}
 
 	/**
-	 * Renders all Walls contained by the world using the specified Graphics object.
+	 * Renders all Walls contained by the world using the specified Graphics
+	 * object.
 	 */
 	private void renderWalls(Graphics g) {
 		List<Wall> walls = wb.getWalls();
@@ -99,7 +102,8 @@ public class WorldPanel extends JPanel {
 	}
 
 	/**
-	 * Renders all Robots contained by the world using the specified Graphics object.
+	 * Renders all Robots contained by the world using the specified Graphics
+	 * object.
 	 */
 	private void renderRobots(Graphics g) {
 		List<Robot> robots = wb.getRobots();
@@ -135,15 +139,22 @@ public class WorldPanel extends JPanel {
 		int width = panelSize.width;
 		int height = panelSize.height;
 
-		//Center within whitespace buffer, find coordinate by scaling, add left hand X_BUFFER, subtract half block width for more centering
-		int xc = (int)((width - 2 * X_BUFFER) * (x * 1.0 / worldSize.x)) + X_BUFFER - blockWidth / 2;
-		int yc = (int)((height - 2 * Y_BUFFER) * ((worldSize.y - y) * 1.0 / worldSize.y)) + Y_BUFFER + blockHeight / 2;
+		//Center within whitespace buffer, find coordinate by scaling,
+		//add left hand X_BUFFER, subtract half block width for more
+		//centering
+		int xc = (int)((width - 2 * X_BUFFER) *
+		               (x * 1.0 / worldSize.x)) +
+		         X_BUFFER - blockWidth / 2;
+		int yc = (int)((height - 2 * Y_BUFFER) *
+		               ((worldSize.y - y) * 1.0 / worldSize.y)) +
+		         Y_BUFFER + blockHeight / 2;
 
 		return new Coordinate(xc, yc);
 	}
 
 	/**
-	 * Returns whether the specified Coordinate is within the size specifications of the world.
+	 * Returns whether the specified Coordinate is within the size
+	 * specifications of the world.
 	 */
 	public boolean isVisible(Coordinate c) {
 		if (c.x > getSize().width || c.y > getSize().height || c.x < 0 || c.y < 0)
@@ -153,17 +164,21 @@ public class WorldPanel extends JPanel {
 	}
 
 	/**
-	 * Returns the number of pixels between two consecutive vertical paths (avenues).
+	 * Returns the number of pixels between two consecutive vertical paths
+	 * (avenues). Used for creating walls.
 	 */
-	protected int getXBlockLength() { //This is the distance betweeen 2 streets, the paths running vertically (used for creating walls)
-		return (int)((getSize().getWidth() - 2 * X_BUFFER) * (1.0 / wb.getSize().x));
+	protected int getXBlockLength() {
+		return (int)((getSize().getWidth() - 2 * X_BUFFER)
+		             * (1.0 / wb.getSize().x));
 	}
 
 	/**
-	 * Returns the number of pixels between two consecutive horizontal paths (streets).
+	 * Returns the number of pixels between two consecutive horizontal paths
+	 * (streets). Used for creating walls.
 	 */
-	protected int getYBlockLength() { //This is the distance betweeen 2 avenues, the paths running horizontally (used for creating walls)
-		return (int)((getSize().getHeight() - 2 * Y_BUFFER) * (1.0 / wb.getSize().y));
+	protected int getYBlockLength() {
+		return (int)((getSize().getHeight() - 2 * Y_BUFFER)
+		             * (1.0 / wb.getSize().y));
 	}
 
 	/**

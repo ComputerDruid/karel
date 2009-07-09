@@ -25,8 +25,8 @@ import java.awt.geom.Rectangle2D;
  */
 
 /**
- * The BeeperStack is a renderable object that keeps track of its location on the world and it's
- * number of beepers.
+ * The BeeperStack is a renderable object that keeps track of its location on
+ * the world and it's number of beepers.
  * @author Andy Street, alstreet@vt.edu, 2007
  */
 public class BeeperStack extends Item {
@@ -36,13 +36,15 @@ public class BeeperStack extends Item {
 	private int numBeepers = 1;
 
 	/**
-	 * Constructs a BeeperStack at the specified location with the specified number of beepers.
+	 * Constructs a BeeperStack at the specified location with the
+	 * specified number of beepers.
 	 */
 	public BeeperStack(int x, int y, int beepers) {
 		super(x, y);
 
 		if (beepers < 1 && beepers != Display.INFINITY) {
-			Debug.printWarning("Invalid amount of beepers: " + beepers + "...  Setting to 1...");
+			Debug.printWarning("Invalid amount of beepers: "
+			                   + beepers + "...  Setting to 1...");
 			beepers = 1;
 		}
 
@@ -57,8 +59,8 @@ public class BeeperStack extends Item {
 	}
 
 	/**
-	 * Renders the beeper stack at the specified pixel coordinates using the specified Graphics
-	 * object.
+	 * Renders the beeper stack at the specified pixel coordinates using
+	 * the specified Graphics object.
 	 */
 	public void render(Graphics g, Coordinate c) {
 		g.setColor(Color.black);
@@ -76,7 +78,8 @@ public class BeeperStack extends Item {
 		Rectangle2D bounds = fm.getStringBounds(text, g);
 
 		g.setColor(Color.white);
-		g.drawString(text, (int)(c.x - bounds.getWidth() / 2), (int)(c.y + bounds.getHeight() / 2));
+		g.drawString(text, (int)(c.x - bounds.getWidth() / 2),
+		             (int)(c.y + bounds.getHeight() / 2));
 	}
 
 }

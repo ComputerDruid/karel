@@ -24,7 +24,8 @@ import java.awt.Graphics;
  */
 
 /**
- * The Item class keeps track of an x and y coordinate and provides an abstract render method.
+ * The Item class keeps track of an x and y coordinate and provides an abstract
+ * render method.
  * @author Andy Street, alstreet@vt.edu, 2007
  */
 

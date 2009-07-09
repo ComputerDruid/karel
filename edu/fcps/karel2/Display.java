@@ -25,9 +25,10 @@ import javax.swing.*;
  */
 
 /**
- * Display houses most of the static constants used in object creation and rendering, Karel file
- * locations and images, and the speed at which the WorldPanel updates.  The Display.step() method
- * is responsible for the animation of the Panel.
+ * Display houses most of the static constants used in object creation and
+ * rendering, Karel file locations and images, and the speed at which the
+ * WorldPanel updates.  The Display.step() method is responsible for the
+ * animation of the Panel.
  * @author Andy Street, alstreet@vt.edu, 2007
  */
 
@@ -156,8 +157,8 @@ public class Display {
 	private static boolean isDead = false;
 
 	/**
-	 * Closes the current world if there is one, then creates a new WorldFrame with the
-	 * specified map file.
+	 * Closes the current world if there is one, then creates a new WorldFrame
+	 * with the specified map file.
 	 * @param mapName the path to the map file to be loaded
 	 */
 	public static void openWorld(String mapName) {
@@ -166,8 +167,8 @@ public class Display {
 	}
 
 	/**
-	 * Closes the current world if there is one, then creates a new WorldFrame with the
-	 * default map.
+	 * Closes the current world if there is one, then creates a new WorldFrame
+	 * with the default map.
 	 */
 	public static void openDefaultWorld() {
 		closeWorld();
@@ -175,8 +176,9 @@ public class Display {
 	}
 
 	/**
-	 * If a WorldFrame has been previously created, its close method is called, closing the
-	 * associated WorldFrame and WorldBackend before disposing of the current WorldFrame.
+	 * If a WorldFrame has been previously created, its close method is called,
+	 * closing the associated WorldFrame and WorldBackend before disposing of
+	 * the current WorldFrame.
 	 */
 	private static void closeWorld() {
 		if (WorldFrame.getCurrent() != null)
@@ -185,12 +187,13 @@ public class Display {
 
 	/**
 	 * Sets the speed at which the Display updates.
-	 * @param s the requested speed of the Display.  If it is greater than the max speed, the speed
-	 * is set to the max speed
+	 * @param s the requested speed of the Display.  If it is greater than the
+	 * max speed, the speed is set to the max speed
 	 */
 	public static void setSpeed(int s) {
 		if (s > MAX_SPEED || s < 1) {
-			Debug.printWarning("Trying to set speed greater than maximum (" + MAX_SPEED + ")!  Setting to max instead...");
+			Debug.printWarning("Trying to set speed greater than maximum ("
+			                   + MAX_SPEED + ")!  Setting to max instead...");
 			speed = MAX_SPEED;
 			return;
 		}
@@ -277,8 +280,8 @@ public class Display {
 	}
 
 	/**
-	 * Repaints the WorldPanel, then pauses the Thread for a period of time based on the current
-	 * Display speed.
+	 * Repaints the WorldPanel, then pauses the Thread for a period of time
+	 * based on the current Display speed.
 	 */
 	static void step() {
 		if (firstStep) {
@@ -303,8 +306,8 @@ public class Display {
 	}
 
 	/**
-	 * Outputs the reason why the Display cannot continue to update, calls hang(), then exits when
-	 * hang() returns.
+	 * Outputs the reason why the Display cannot continue to update, calls
+	 * hang(), then exits when hang() returns.
 	 */
 	static void die(String reason) {
 		isDead = true;
@@ -324,7 +327,8 @@ public class Display {
 	}
 
 	/**
-	 * Returns whether or not the Display is currently dead (no longer able to update).
+	 * Returns whether or not the Display is currently dead
+	 * (no longer able to update).
 	 */
 	public static boolean isDead() {
 		return isDead;
