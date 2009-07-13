@@ -336,25 +336,11 @@ public class Robot extends Item {
 	}
 
 	/**
-	 * Returns whether or not there is another Robot on the same square as
-	 * this Robot.
-	 */
-	public boolean sameSpot() {
-		List<Robot> robots = WorldBackend.getCurrent().getRobots();
-		synchronized (robots) {
-			for (Robot robot : robots)
-				if (robot != this && robot.getX() == x && robot.getY() == y)
-					return true;
-			return false;
-		}
-	}
-
-	/**
 	 * Returns whether or not the specified Robot is on the same square as
 	 * this Robot.
 	 * @param other the Robot to check against
 	 */
-	public boolean sameSpot(Robot other) {
+	public boolean nextToRobot(Robot other) {
 		return (x == other.getX() && y == other.getY());
 	}
 }

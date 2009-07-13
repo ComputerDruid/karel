@@ -270,11 +270,13 @@ public class WorldBackend {
 	 * @param y y-coordinate of the location to search
 	 */
 	boolean isNextToARobot(Robot r, int x, int y) {
-		for (Robot robot : robots)
-			if (robot != r && robot.getX() == x && robot.getY() == y)
-				return true;
+		synchronized (robots) {
+			for (Robot robot : robots)
+				if (robot != r && robot.getX() == x && robot.getY() == y)
+					return true;
 
-		return false;
+			return false;
+		}
 	}
 
 	/**
