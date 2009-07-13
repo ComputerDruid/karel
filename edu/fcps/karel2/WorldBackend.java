@@ -233,8 +233,8 @@ public class WorldBackend {
 					for (Wall w : walls)
 						if (w.getStyle() == style)
 							if (w.getY() == y &&
-							x >= w.getX() &&
-							x < w.getX() + w.getLength())
+							                x >= w.getX() &&
+							                x < w.getX() + w.getLength())
 								return true;
 
 					break;
@@ -243,8 +243,8 @@ public class WorldBackend {
 					for (Wall w : walls)
 						if (w.getStyle() == style)
 							if (w.getX() == x &&
-							y >= w.getY() &&
-							y < w.getY() + w.getLength())
+							                y >= w.getY() &&
+							                y < w.getY() + w.getLength())
 								return true;
 
 					break;

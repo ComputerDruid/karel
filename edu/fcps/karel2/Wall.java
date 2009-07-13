@@ -123,20 +123,20 @@ public class Wall extends Item {
 		switch (style) {
 			case Display.VERTICAL:
 				g.fillRect((int)(c.x + width / 2 - (WALL_WIDTH - 1) / 2),
-				(int)(c.y - height * length + height / 2),
-				WALL_WIDTH, (int)(height * length + 1));
+				           (int)(c.y - height * length + height / 2),
+				           WALL_WIDTH, (int)(height * length + 1));
 				break;
 			case Display.HORIZONTAL:
 				g.fillRect((int)(c.x - width / 2),
-				(int)(c.y - height / 2 - (WALL_WIDTH - 1) / 2),
-				(int)(width * length + 1), WALL_WIDTH);
+				           (int)(c.y - height / 2 - (WALL_WIDTH - 1) / 2),
+				           (int)(width * length + 1), WALL_WIDTH);
 				break;
 		}
 	}
 
 	public String toString() {
-		return "Wall { x : " + getX() + ", y: " + getY() + 
-		" , length: " + length + ", style: " + style + " }";
+		return "Wall { x : " + getX() + ", y: " + getY() +
+		       " , length: " + length + ", style: " + style + " }";
 	}
 
 }

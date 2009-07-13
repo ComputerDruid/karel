@@ -169,7 +169,7 @@ public class WorldPanel extends JPanel {
 	 */
 	protected double getXBlockLength() {
 		return ((getSize().getWidth() - 2 * X_BUFFER)
-		             * (1.0 / wb.getSize().x));
+		        * (1.0 / wb.getSize().x));
 	}
 
 	/**
@@ -178,7 +178,7 @@ public class WorldPanel extends JPanel {
 	 */
 	protected double getYBlockLength() {
 		return ((getSize().getHeight() - 2 * Y_BUFFER)
-		             * (1.0 / wb.getSize().y));
+		        * (1.0 / wb.getSize().y));
 	}
 
 	/**
