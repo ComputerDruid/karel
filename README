@@ -1,6 +1,6 @@
-jKarel (real name to be chosen soon) is a framework with which to teach introductory computer science. It is designed to be taught with a series of packets. To find out more about using these packets for your own class, contact Stephen Rose at Thomas Jefferson High School for Science and Technology.
+fcpsKarel is a framework with which to teach introductory computer science. It is designed to be taught with a series of packets. To find out more about using these packets for your own class, contact Stephen Rose at Thomas Jefferson High School for Science and Technology.
 
-jKarel uses the ant buildsystem to compile the source. Unless you want to induce pain by compiling it yourself, you need the program "ant" to build it.
+fcpsKarel uses the ant buildsystem to compile the source. Unless you want to induce pain by compiling it yourself, you need the program "ant" to build it.
 
 to build the sources and a jar, run "ant"
 
