@@ -2,7 +2,7 @@
 * fcpsKarel README *
 ********************
 
-fcpsKarel is a framework with which to teach introductory computer science. It is designed to be taught with a packet of labs and excercises. To find out more about using these packets for your own class, contact Stephen Rose at Thomas Jefferson High School for Science and Technology.
+fcpsKarel is a framework with which to teach introductory computer science. It is designed to be taught with a packet of labs and excercises. To find out more about using these packets for your own class, contact Thomas Jefferson High School for Science and Technology.
 
 fcpsKarel uses the ant buildsystem to compile the source. Unless you want to induce pain by compiling it yourself, you need the program "ant" to build it.
 
