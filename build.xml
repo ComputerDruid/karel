@@ -12,6 +12,7 @@
     	<jar destfile="karel2.jar" basedir="." includes="manifest.txt" manifest="manifest.txt" update="true" />
     	<jar destfile="karel2.jar" basedir="." includes="xercesImpl.jar" update="true" />
         <jar destfile="karel2.jar" basedir="." includes="LICENSE.TXT" manifest="manifest.txt" update="true" />
+        <jar destfile="karel2.jar" basedir="." includes="README" manifest="manifest.txt" update="true" />
     </target>
     <target name="clean">
         <delete>
