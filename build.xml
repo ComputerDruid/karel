@@ -1,4 +1,4 @@
-<project name="karel2" default="dist-files" basedir=".">
+<project name="fcpsKarel" default="dist-files" basedir=".">
     <target name="build-all">
         <javac srcdir="." classpath=".:xercesImpl.jar" />
     </target>
