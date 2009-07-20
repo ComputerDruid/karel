@@ -1,9 +1,24 @@
-fcpsKarel is a framework with which to teach introductory computer science. It is designed to be taught with a series of packets. To find out more about using these packets for your own class, contact Stephen Rose at Thomas Jefferson High School for Science and Technology.
+********************
+* fcpsKarel README *
+********************
+
+fcpsKarel is a framework with which to teach introductory computer science. It is designed to be taught with a packet of labs and excercises. To find out more about using these packets for your own class, contact Stephen Rose at Thomas Jefferson High School for Science and Technology.
 
 fcpsKarel uses the ant buildsystem to compile the source. Unless you want to induce pain by compiling it yourself, you need the program "ant" to build it.
 
-to build the sources and a jar, run "ant"
+* to build the sources and a jar, run "ant"
+* to build the documentation, run "ant docs"
 
-to build the documentation, run "ant doc"
+the information for these processes is stored in the "build.xml" file.
 
-the information for these processes is stored in the "build.xml" file
+See the file LICENSE.TXT for information about copying these files.
+
+Author:
+Andy Street <alstreet@vt.edu> 2007
+* Wrote the vast majority of the code and documentation.
+
+ChangeLog:
+Daniel Johnson <2010djohnson@tjhsst.edu> Summer 2009
+* Fixed a ConcurrentModificationException
+* Fixed a rendering error with walls longer than 1 unit long.
+* Added more documentation
