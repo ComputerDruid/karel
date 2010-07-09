@@ -30,6 +30,7 @@ import javax.swing.*;
  * WorldPanel updates.  The Display.step() method is responsible for the
  * animation of the Panel.
  * @author Andy Street, alstreet@vt.edu, 2007
+ * @author Craig Saperstein, cmsaperstein@gmail.com, 2010
  */
 
 public class Display {
@@ -175,6 +176,20 @@ public class Display {
 		new WorldFrame(new WorldBackend());
 	}
 
+	/**
+	 * Placea beeper at some coordinate x,y
+	 * @param x the x coordinate of the desired placement
+	 * @param y the y coordinate of the desired placement 
+	 */
+	
+	public static void placeBeeper(int x, int y)
+	{
+		if (isDead())
+			return;
+		WorldBackend.getCurrent().putBeepers(x, y, 1);
+		WorldPanel.getCurrent().repaint();
+	}
+	
 	/**
 	 * If a WorldFrame has been previously created, its close method is called,
 	 * closing the associated WorldFrame and WorldBackend before disposing of
