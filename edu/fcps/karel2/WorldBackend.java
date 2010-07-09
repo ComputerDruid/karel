@@ -63,6 +63,17 @@ public class WorldBackend {
 		}
 		Display.step();
 	}
+	/**
+	* Adds a robot to the world without having a time step. (Used when a map
+	*creates a Robot when it is built.)
+	*/
+
+	void addRobotInternal(Robot r) {
+		synchronized (robots) {
+			robots.add(r);
+		}
+	}
+
 
 	/**
 	 * Removes a robot from the world.
@@ -142,8 +153,17 @@ public class WorldBackend {
 
 		addWall(new Wall(x, y, length, style));
 	}
+	/**
+	 * Helper method to convert the attributes from the file which represent
+	 * a robot into a robot object.
+	 */
 	public void addObject_robot(Attributes a) {
+		int x = Integer.parseInt(a.get("x"));
+		int y = Integer.parseInt(a.get("y"));
+		int direction = Integer.parseInt(a.get("direction"));
+		int beepers = Integer.parseInt(a.get("beepers"));
 
+		new Robot(x, y, direction, beepers, true);
 	}
 
 	/**

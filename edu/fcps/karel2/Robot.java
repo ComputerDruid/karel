@@ -28,8 +28,7 @@ public class Robot extends Item {
 		this(1, 1, Display.EAST, 0);
 	}
 
-	/**
-	 * Contructs a Robot with the specified location, direction, and number
+	/**Contructs a Robot at the specified location, direction, and number
 	 * of beepers.
 	 * @param x the x coordinate of the new Robot's location
 	 * @param y the y coordinate of the new Robot's location
@@ -39,6 +38,36 @@ public class Robot extends Item {
 	 */
 	public Robot(int x, int y, int dir, int beepers) {
 		super(x, y);
+		init(x, y, dir, beepers, false);
+	}
+
+	/**Contructs a Robot at the specified location, direction, and number of beepers
+	 * and adds it to the WorldBackend.
+	 * @param x the x coordinate of the new Robot's location
+	 * @param y the y coordinate of the new Robot's location
+	 * @param dir the number representing the direction of the robot, using
+	 * the constants from Display
+	 * @param beepers the number of beepers the new Robot will start with
+	 * @param internal a boolean specifiying whether the robot construction
+	 * to cause the display to update or not.(Internal indicates no display
+	 * update
+	 */
+
+	public Robot(int x, int y, int dir, int beepers, boolean internal) {
+		super(x, y);
+		init(x, y, dir, beepers, internal);
+	}
+	/**Common code called by both constructors.
+	 * @param x the x coordinate of the new Robot's location
+	 * @param y the y coordinate of the new Robot's location
+	 * @param dir the number representing the direction of the robot, using
+	 * the constants from Display
+	 * @param beepers the number of beepers the new Robot will start with
+	 * @param internal a boolean specifiying whether the robot construction
+	 * to cause the display to update or not.(Internal indicates no display
+	 * update
+	 */
+	private void init(int x, int y, int dir, int beepers, boolean internal) {
 
 		if (WorldBackend.getCurrent() == null) {
 			Display.openDefaultWorld();
@@ -55,8 +84,11 @@ public class Robot extends Item {
 
 		direction = Display.validateDirection(dir);
 		this.beepers = beepers;
+		if (internal)
+			WorldBackend.getCurrent().addRobotInternal(this);
+		else
+			WorldBackend.getCurrent().addRobot(this);
 
-		WorldBackend.getCurrent().addRobot(this);
 	}
 
 	/**
