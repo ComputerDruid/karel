@@ -184,6 +184,10 @@ public class Display {
 	
 	public static void placeBeeper(int x, int y)
 	{
+		if (WorldBackend.getCurrent() == null) {
+			Display.openDefaultWorld();
+		}
+
 		if (isDead())
 			return;
 		WorldBackend.getCurrent().putBeepers(x, y, 1);
